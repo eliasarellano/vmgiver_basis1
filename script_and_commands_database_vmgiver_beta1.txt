@@ -1,0 +1,104 @@
+create database vmgiver_beta1;
+
+#\l (para ver la lista de base de datos)
+#\c database_name (para conectarse a database_name)
+
+CREATE TABLE users (
+id_users SERIAL PRIMARY KEY,
+name CHAR(30),
+last_name CHAR(30),
+date_of_birth date,
+profession CHAR(30),
+sex CHAR(2),
+mail CHAR(50),
+username CHAR(30),
+password varchar,
+creation_date_user date,
+vm_quantity SMALLINT,
+reason_of_account text
+);
+
+CREATE TABLE installed_vm(
+id_vm SERIAL PRIMARY KEY,
+id_user INTEGER,
+name_vm CHAR(30),
+operating_system CHAR(30),
+core_quantity INTEGER,
+ram_quantity INTEGER,
+hard_disk_quantity INTEGER,
+creation_date_vm date,
+reason_of_vm text,
+ip_adress_vm CHAR(20),
+FOREIGN KEY (id_user) REFERENCES users(id_users)
+);
+
+CREATE TABLE vm_ip_adress(
+id_ip_adress SERIAL PRIMARY KEY,
+ip_adress CHAR(20),
+available BOOLEAN
+);
+
+CREATE TABLE deleted_users (
+id_deleted_user SERIAL PRIMARY KEY,
+perious_id_user INTEGER,
+name CHAR(30),
+last_name CHAR(30),
+date_of_birth date,
+profession CHAR(30),
+sex CHAR(2),
+mail CHAR(50),
+username CHAR(30),
+password varchar,
+creation_date_user date,
+total_created_vm INTEGER,
+reason_of_account text,
+delete_account_date date,
+reason_of_deleted_account text
+);
+
+CREATE TABLE total_created_vm(
+id_old_vm INTEGER,
+id_user INTEGER,
+name_vm CHAR(30),
+operating_system CHAR(30),
+core_quantity INTEGER,
+ram_quantity INTEGER,
+hard_disk_quantity INTEGER,
+creation_date_vm date,
+delete_date_vm date,
+reason_of_vm text,
+reason_of_deleted_vm CHAR(15),
+details_reason_of_deleted_vm text,
+ip_adress_vm CHAR(20),
+FOREIGN KEY (id_old_vm) REFERENCES installed_vm(id_vm)
+);
+
+delimiter$$
+ CREATE TRIGGER vm_trigger
+AFTER delete ON installed_vm
+FOR EACH ROW
+BEGIN
+insert into total_created_vm (delete_date_vm,reason_of_deleted_vm,details_reason_of_deleted_vm) 
+VALUES(now(),"i dont need it","it was useful") 
+WHERE id_old_vm=;
+ ENDS$$
+delimiter;
+
+delimiter$$
+ CREATE TRIGGER vm_trigger
+AFTER insert ON installed_vm
+FOR EACH ROW
+BEGIN
+insert into total_created_vm (delete_date_vm,reason_of_deleted_vm,details_reason_of_deleted_vm) 
+VALUES(now(),"i dont need it","it was useful");
+ ENDS$$
+delimiter;
+
+
+// connect as postgres user in linux command: sudo su postgres
+// connect to a database using postgres user : psql -U postgres -d vmgiver_beta1
+// see list of tables : \dt
+// see columns and information of table : \d+ tablename
+// see psql command help : \?
+// see postgres help: \h
+
