@@ -85,3 +85,11 @@ Now, lets say if you have seen latest node version is 9.4.0 and want to install 
 Now, you can see version 6.8.1 is installed,
 
  $ node -v 
+
+
+Good practice to keep team in the same version :::::::::::::::::::::::::::::::::::::::::::::::::
+
+run those commands before doing npm install
+$ npm config set save=true
+$ npm config set save-exact=true
+now npm install and get the same version of all depencencies.
