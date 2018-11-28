@@ -25,6 +25,11 @@ var vm_query = "SELECT * FROM users;";
         res.render('pages/createvm')
     })
 
+
+    app.get('/listvmdata',(req,res) => {
+        res.render('pages/listyoursvm');
+    }) 
+
     app.get('/data',(req,res)=>{
         var client = new pg.Client(conString);
         
