@@ -10,7 +10,16 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 //Bootstrap declaration
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
-app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
+app.use('/css',express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
+
+/*
+//Database declaration
+var pg = require('pg');
+var conString = "postgres://postgres:6453508@localhost/vmgiver_beta1";
+var vm_query = "SELECT row_to_json(fc) FROM (SELECT array_to_json(array_agg(f)) As Datos FROM (" + 
+"SELECT ST_AsGeoJSON(lg.geom)::json As geometry, row_to_json((id_users,name)) As properties" + 
+" FROM users As lg) As f) As fc";
+*/
 
 //Extension JS files declaration
 var redirectToPages = require('./redirectToPagesWithNoVariables/redirectpages')

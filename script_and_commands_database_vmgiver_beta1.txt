@@ -95,10 +95,15 @@ VALUES(now(),"i dont need it","it was useful");
 delimiter;
 
 
+
+
+
+INSERT INTO users (name,last_name,date_of_birth,profession,sex,mail,username,password,creation_date_user,vm_quantity,reason_of_account) VALUES ('harry','grantolosi','1995-04-29','doctor','m','harry@gmail.com','harryto','yeah','2018-11-28','2','test');
+
 // connect as postgres user in linux command: sudo su postgres
 // connect to a database using postgres user : psql -U postgres -d vmgiver_beta1
 // see list of tables : \dt
 // see columns and information of table : \d+ tablename
 // see psql command help : \?
 // see postgres help: \h
-
+// Change column variable type: ALTER TABLE thetable ALTER COLUMN colname TYPE text;
