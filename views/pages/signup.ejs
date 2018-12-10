@@ -10,41 +10,6 @@
 
     <title>Hello, world!</title>
   </head>
-  <!-- <body>
-    <h1>Hello Users!</h1>
-
-    <p> Signup ! </p>
-
-    <form action="/todosignup" method="POST">
-      First name:<br>
-      <input type="text" name="firstname" placeholder="firstname">
-      <br>
-      Last name:<br>
-      <input type="text" name="lastname" placeholder="lastname">
-      <br>
-      Sex:<br>
-      <input type="radio" name="gender" value="male" checked> Male<br>
-      <input type="radio" name="gender" value="female"> Female<br>
-      <br>
-      Mail:<br>
-      <input type="email" name="email" placeholder="email@domain.com">
-      <br>
-      User name:<br>
-      <input type="text" name="username" placeholder="username">
-      <br>
-      Password<br>
-      <input type="text" name="password" placeholder="password">
-      <br>
-      Repeat password<br>
-      <input type="text" name="repeatpassword" placeholder="repeatpassword">
-      <br><br>
-      <input type="submit" value="Submit">
-    </form>
-
-    <script>
-
-    
-    </script> -->
 
     <body style="background-color: greenyellow">
 
@@ -62,7 +27,7 @@
                                   <h3 class="mb-0 text-center">Sign Up</h3>
                               </div>
                               <div class="card-body">
-                                  <form action="/todosignup" class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                                  <form action="/adduser" class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
                                       <div class="form-group">
                                           <label for="uname1">First name</label>
                                           <input type="text" name="firstname" placeholder="firstname" required>
@@ -73,12 +38,12 @@
                                       </div>
                                       <div class="form-group">
                                           <label> Date of birth </label>
-                                          <input type="date" name="bday" required>
+                                          <input type="date" name="birthday" required>
                                       </div>
                                       <div class="form-group">
                                         <label>Sex <br></label>
-                                        <input type="radio" name="gender" value="male" checked> Male
-                                        <input type="radio" name="gender" value="female"> Female
+                                        <input type="radio" name="gender" value="m" checked> Male
+                                        <input type="radio" name="gender" value="f"> Female
                                     </div>
                                     <div class="form-group">
                                       <label>Mail</label>
@@ -90,7 +55,7 @@
                                   </div>
                                   <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="password" required="" placeholder="Password" autocomplete="new-password">
+                                    <input name="password" type="password" class="form-control form-control-lg rounded-0" id="password" required="" placeholder="Password" autocomplete="new-password">
                                     <div class="invalid-feedback">Enter your password !</div>
                                   </div>
                                   <div class="form-group">

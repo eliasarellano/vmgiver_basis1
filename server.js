@@ -28,6 +28,7 @@ var redirectToPagesWithVariables = require('./redirectToPagesWithVariables/redir
 redirectToPagesWithVariables(app);
 
 
+
 //EJS declaration
 app.set('view engine', 'ejs') //Templates Editor
 app.use('/assets',express.static('public')) //Where are CSS

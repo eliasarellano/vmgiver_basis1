@@ -107,3 +107,7 @@ INSERT INTO users (name,last_name,date_of_birth,profession,sex,mail,username,pas
 // see psql command help : \?
 // see postgres help: \h
 // Change column variable type: ALTER TABLE thetable ALTER COLUMN colname TYPE text;
+
+
+
+//insert or update on table "installed_vm" violates foreign key constraint "installed_vm_id_user_fkey"

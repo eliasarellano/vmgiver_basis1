@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <title>Hello, world!</title>
+    <title>List of yours installed vms</title>
   </head>
   <body>
     <div  background-color="#155A1E !important" class="jumbotron text-center" style="margin-bottom:0" >
@@ -17,9 +17,29 @@
   
        <h1 class="display-1">See here all your virtual machines installed </h1>
        
+
       <!-- 4 ways to make a button that link to another page -->
        
       </div>
+
+      <table class="table table-hover">
+       <thead>
+          <tr>
+            <th>Machine name</th>
+            <th>Operating system</th>
+            <th>Total size</th>
+            <th>Description</th>
+         </tr> 
+        </thead>
+        <tbody>
+         <% yeah.forEach(function (listofvm) { %>
+        <tr>  
+           <td><%= listofvm.name %></td>  
+           <td><%= listofvm.username %></td>
+        </tr>                                   
+         <% }) %>
+        </tbody>
+      </table>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
